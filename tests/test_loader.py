@@ -1,5 +1,5 @@
 from src.config import weeknum
-from src.loader import Loader
+from src.load import Loader
 from src.paths import INPUT_PATH
 from src.utils import get_file_name
 

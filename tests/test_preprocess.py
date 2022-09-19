@@ -41,7 +41,7 @@ def test_aggregated_key_types():
     loader = Loader(INPUT_PATH, file_name)
     df = loader.run()
     preprocessor = Preprocessor(df)
-    actual = all([isinstance(k, str) for k in list(preprocessor.agg().keys())])
+    actual = all([isinstance(t[0], str) for t in preprocessor.agg_sorted()])
     expected = True
     assert actual == expected
 
@@ -51,6 +51,16 @@ def test_aggregated_value_types():
     loader = Loader(INPUT_PATH, file_name)
     df = loader.run()
     preprocessor = Preprocessor(df)
-    actual = all([isinstance(k, int) for k in list(preprocessor.agg().values())])
+    actual = all([isinstance(t[1], int) for t in preprocessor.agg_sorted()])
     expected = True
+    assert actual == expected
+
+
+def test_aggregated_value_sorted():
+    file_name = get_file_name(weeknum)
+    loader = Loader(INPUT_PATH, file_name)
+    df = loader.run()
+    preprocessor = Preprocessor(df)
+    actual = [t[1] for t in preprocessor.agg_sorted()]
+    expected = sorted(actual, reverse=False)  # NOTE: negative values
     assert actual == expected
