@@ -14,14 +14,14 @@
   - [x] Output log of daikoumoku by sorting daikoumoku aggregated values.
 - Src
   - Test
-    - [ ] Load data.
-    - [ ] Get records whose "furikae" column is 0 and "daikoumoku" column is not "syunyu".
-    - [ ] Get records whose "daikoumoku" column is not Cash & Card.
-    - [ ] Aggregate expense per "daikoumoku".
+    - [x] Load data.
+    - [x] Get records whose "furikae" column is 0 and "daikoumoku" column is not "syunyu".
+    - [x] Get records whose "daikoumoku" column is not Cash & Card.
+    - [x] Aggregate expense per "daikoumoku".
     - [ ] Output log of daikoumoku by sorting daikoumoku aggregated values.
   - Main
-    - [ ] Load data.
-    - [ ] Get records whose "furikae" column is 0 and "daikoumoku" column is not "syunyu".
-    - [ ] Get records whose "daikoumoku" column is not Cash & Card.
-    - [ ] Aggregate expense per "daikoumoku".
+    - [x] Load data.
+    - [x] Get records whose "furikae" column is 0 and "daikoumoku" column is not "syunyu".
+    - [x] Get records whose "daikoumoku" column is not Cash & Card.
+    - [x] Aggregate expense per "daikoumoku".
     - [ ] Output log of daikoumoku by sorting daikoumoku aggregated values.

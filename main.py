@@ -6,9 +6,10 @@
 import logging
 
 # from pathlib import Path
-from pprint import pprint
+from pprint import pformat
 
 import logzero
+from logzero import logger
 
 from src.config import weeknum
 from src.load import Loader
@@ -16,29 +17,21 @@ from src.paths import INPUT_PATH
 from src.preprocess import Preprocessor
 from src.utils import get_file_name
 
-# import pandas as pd
-# from logzero import logger
-
-
 logzero.loglevel(20)
 formatter = logging.Formatter("%(asctime)s %(levelname)s: %(message)s")
 logzero.formatter(formatter)
 
 
-# def get_expense(df: pd.DataFrame) -> dict:
-#     return (
-#         df[(df["振替"] == 0) & (df["大項目"] != "収入")].groupby("内容").sum()["金額（円）"].to_dict()
-#     )
-
-
 def main():
-    # df = pd.read_csv(INPUT_PATH / file_name, encoding="shiftjis")
-    # logger.info(f"""This week expense{get_expense(df)}""")
     file_name = get_file_name(weeknum)
     loader = Loader(INPUT_PATH, file_name)
     df = loader.run()
     preprocessor = Preprocessor(df)
-    pprint(preprocessor.agg_sorted())
+    logger.info(f"1週間あたりの支出: {sum(t[1] / 3 for t in preprocessor.agg_sorted()):,}")
+    logger.info("1週間あたりの大項目別支出")
+    # TODO: Refactored
+    for v in preprocessor.agg_sorted():
+        logger.info(pformat((v[0], round(v[1] / 3))))
 
 
 if __name__ == "__main__":
