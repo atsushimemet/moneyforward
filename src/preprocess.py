@@ -1,4 +1,5 @@
 from dataclasses import dataclass
+from typing import List, Tuple
 
 import pandas as pd
 
@@ -13,6 +14,8 @@ class Preprocessor:
         _df = _df[(_df["大項目"] != "収入") & (_df["大項目"] != "現金・カード")].copy()
         return _df
 
-    def agg(self) -> dict:
+    def agg_sorted(self) -> List[Tuple[str, int]]:
         _df = self._prep()
-        return _df.groupby("大項目").sum()["金額（円）"].to_dict()
+        return sorted(
+            _df.groupby("大項目").sum()["金額（円）"].to_dict().items(), key=lambda x: x[1]
+        )
