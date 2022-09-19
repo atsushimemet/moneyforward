@@ -44,3 +44,13 @@ def test_aggregated_key_types():
     actual = all([isinstance(k, str) for k in list(preprocessor.agg().keys())])
     expected = True
     assert actual == expected
+
+
+def test_aggregated_value_types():
+    file_name = get_file_name(weeknum)
+    loader = Loader(INPUT_PATH, file_name)
+    df = loader.run()
+    preprocessor = Preprocessor(df)
+    actual = all([isinstance(k, int) for k in list(preprocessor.agg().values())])
+    expected = True
+    assert actual == expected
