@@ -1,0 +1,27 @@
+# Design
+## This week expense
+- Web UI
+  - [x] Update data by an app (ex. category...).
+  - [x] Get data of this week from [moneyforward page](https://moneyforward.com/cf).
+- Shell
+  - [x] Deploy data in a data input directory in this project.
+    - [x] Add prefix "w<weeknum>".
+- Notebook
+  - [x] Load data.
+  - [x] Get records whose "furikae" column is 0 and "daikoumoku" column is not "syunyu".
+  - [x] Get records whose "daikoumoku" column is not Cash & Card.
+  - [x] Aggregate expense per "daikoumoku".
+  - [x] Output log of daikoumoku by sorting daikoumoku aggregated values.
+- Src
+  - Test
+    - [ ] Load data.
+    - [ ] Get records whose "furikae" column is 0 and "daikoumoku" column is not "syunyu".
+    - [ ] Get records whose "daikoumoku" column is not Cash & Card.
+    - [ ] Aggregate expense per "daikoumoku".
+    - [ ] Output log of daikoumoku by sorting daikoumoku aggregated values.
+  - Main
+    - [ ] Load data.
+    - [ ] Get records whose "furikae" column is 0 and "daikoumoku" column is not "syunyu".
+    - [ ] Get records whose "daikoumoku" column is not Cash & Card.
+    - [ ] Aggregate expense per "daikoumoku".
+    - [ ] Output log of daikoumoku by sorting daikoumoku aggregated values.
